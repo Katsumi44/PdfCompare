@@ -1,11 +1,11 @@
 import os
 from datetime import datetime
 from tkinter import Tk, filedialog
-from PIL import Image
-from pdf2image import convert_from_path
+
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw
+from pdf2image import convert_from_path
 
 
 def pdfToImage(pdf_path, output_folder, saveName):
@@ -19,6 +19,7 @@ def pdfToImage(pdf_path, output_folder, saveName):
         image_paths.append(image_path)
 
     return image_paths
+
 
 def imageComparison_overload(image1_path, image2_path, output_path):
     """Detects differences and marks them in two colors based on their value: green for > 0, blue for < 0."""
@@ -55,6 +56,7 @@ def imageComparison_overload(image1_path, image2_path, output_path):
     # Save the resulting image
     highlighted_image.save(output_path)
     print(f"Saved highlighted image: {output_path}")
+
 
 def imageComparison_boundingBox(image1_path, image2_path, output_path):
     """Detects differences and marks them with bounding boxes."""
